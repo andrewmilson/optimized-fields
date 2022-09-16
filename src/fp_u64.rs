@@ -14,15 +14,15 @@ pub struct FpParams;
 impl ark_ff::FpConfig<1> for FpParams {
     const MODULUS: ark_ff::BigInt<1> = BigInt([MODULUS]);
 
-    const GENERATOR: Fp64<Self> = into_montgomery(7);
+    const GENERATOR: Fp64<Self> = into_mont(7);
 
-    const ZERO: Fp64<Self> = into_montgomery(0);
+    const ZERO: Fp64<Self> = into_mont(0);
 
-    const ONE: Fp64<Self> = into_montgomery(1);
+    const ONE: Fp64<Self> = into_mont(1);
 
     const TWO_ADICITY: u32 = 32;
 
-    const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_montgomery(1753635133440165772);
+    const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_mont(1753635133440165772);
 
     const SQRT_PRECOMP: Option<ark_ff::SqrtPrecomputation<Fp64<Self>>> = None;
 
@@ -45,7 +45,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn mul_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
-        (a.0).0[0] = mont_red_cst((a.0).0[0] as u128 * (b.0).0[0] as u128);
+        (a.0).0[0] = mont_red((a.0).0[0] as u128 * (b.0).0[0] as u128);
     }
 
     fn sum_of_products(a: &[Fp64<Self>], b: &[Fp64<Self>]) -> Fp64<Self> {
@@ -82,14 +82,14 @@ impl ark_ff::FpConfig<1> for FpParams {
         if inner.is_zero() {
             Some(Self::ZERO)
         } else if inner < MODULUS {
-            Some(into_montgomery(other.0[0]))
+            Some(into_mont(other.0[0]))
         } else {
             None
         }
     }
 
     fn into_bigint(other: Fp64<Self>) -> ark_ff::BigInt<1> {
-        BigInt([mont_red_cst((other.0).0[0] as u128)])
+        BigInt([mont_red((other.0).0[0] as u128)])
     }
 }
 
@@ -97,16 +97,13 @@ pub type Fp = Fp64<FpParams>;
 
 /// Converts a canonical representation into Montgomery representation
 #[inline(always)]
-const fn into_montgomery(value: u64) -> Fp {
-    ark_ff::Fp(
-        BigInt([mont_red_cst(value as u128 * R2 as u128)]),
-        PhantomData,
-    )
+const fn into_mont(value: u64) -> Fp {
+    ark_ff::Fp(BigInt([mont_red(value as u128 * R2 as u128)]), PhantomData)
 }
 
 /// Performs Montgomery reduction
 #[inline(always)]
-const fn mont_red_cst(x: u128) -> u64 {
+const fn mont_red(x: u128) -> u64 {
     // See reference above for a description of the following implementation.
     let xl = x as u64;
     let xh = (x >> 64) as u64;
@@ -122,8 +119,8 @@ const fn exp_acc<const N: usize>(base: u64, tail: u64) -> u64 {
     let mut result = base;
     let mut i = 0;
     while i < N {
-        result = mont_red_cst(result as u128 * result as u128);
+        result = mont_red(result as u128 * result as u128);
         i += 1;
     }
-    mont_red_cst(result as u128 * tail as u128)
+    mont_red(result as u128 * tail as u128)
 }
