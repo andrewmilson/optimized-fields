@@ -1,3 +1,12 @@
+// My main motivation with the benchmarks here was to compare the performance of arkworks
+// generic field implementations with the specialized field implementations in this repo. I
+// originally wanted to re-use the macros defined in the "ark-algebra-bench-templates" but
+// Criterion's facilities for analyzing in the aggregate didn't enable for comparison. I
+// tried to use https://github.com/BurntSushi/critcmp to compare benchmarks but the reports
+// where hard to read and looked bad. This is a more of less a copy of the benchmarks in the
+// "ark-algebra-bench-templates" crate and parametrizes the benchmarks in such a way that a
+// nice comparison table is generated in the report.
+// Demo: http://andrewmilson.com/optimized-fields/criterion/report/index.html
 #[macro_export]
 macro_rules! field_compare {
     (prime; $test_name:expr; $mod_name:ident; $( $field:ident ),+) => {
