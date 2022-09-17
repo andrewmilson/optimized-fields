@@ -1,29 +1,32 @@
+//! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
+//! - 2^32 + 1` The implementation follows https://eprint.iacr.org/2022/274.pdf and
+//!   the code for the majority of functions was stolen from https://github.com/novifinancial/winterfell
+//!
+//! This field and its implementation has many attractive properties:
+//! * Multiplication of two 32-bit values does not overflow field modulus.
+//! * Field arithmetic in this field can be implemented using a few 32-bit
+//!   addition, subtractions, and shifts.
+//! * $8$ is the 64th root of unity which opens up potential for optimized FFT
+//!   implementations.
+
 use ark_ff::fields::Fp64;
 use ark_ff::BigInt;
-use ark_ff::Field;
 use ark_ff::Zero;
 use std::marker::PhantomData;
 
-/// Field modulus
+/// Field modulus `p = 2^64 - 2^32 + 1`
 const MODULUS: u64 = 18446744069414584321;
 
-/// Square of auxiliary modulus R for Montgomery reduction `R2 ≡ (2^64)^2 mod P`
+/// Square of auxiliary modulus R for Montgomery reduction `R2 ≡ (2^64)^2 mod p`
 const R2: u64 = 18446744065119617025;
-
 pub struct FpParams;
 impl ark_ff::FpConfig<1> for FpParams {
     const MODULUS: ark_ff::BigInt<1> = BigInt([MODULUS]);
-
     const GENERATOR: Fp64<Self> = into_mont(7);
-
     const ZERO: Fp64<Self> = into_mont(0);
-
     const ONE: Fp64<Self> = into_mont(1);
-
     const TWO_ADICITY: u32 = 32;
-
     const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_mont(1753635133440165772);
-
     const SQRT_PRECOMP: Option<ark_ff::SqrtPrecomputation<Fp64<Self>>> = None;
 
     fn add_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
@@ -40,8 +43,9 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn double_in_place(a: &mut Fp64<Self>) {
-        let (result, over) = (a.0).0[0].overflowing_shl(1);
-        (a.0).0[0] = result.wrapping_sub(MODULUS * (over as u64));
+        let ret = ((a.0).0[0] as u128) << 1;
+        let (result, over) = (ret as u64, (ret >> 64) as u64);
+        (a.0).0[0] = result.wrapping_sub(MODULUS * over);
     }
 
     fn mul_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
@@ -49,7 +53,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn sum_of_products(a: &[Fp64<Self>], b: &[Fp64<Self>]) -> Fp64<Self> {
-        a.iter().zip(b).map(|(a, b)| *a * b).sum()
+        a.iter().zip(b).map(|(&a, b)| a * b).sum()
     }
 
     fn square_in_place(a: &mut Fp64<Self>) {
@@ -61,19 +65,17 @@ impl ark_ff::FpConfig<1> for FpParams {
         if a.is_zero() {
             None
         } else {
-            // compute base^(M - 2) using 72 multiplications
-            let t2 = a.square() * a;
-            let t3 = t2.square() * a;
-            let t6 = exp_acc::<3>((t3.0).0[0], (t3.0).0[0]);
+            let a = (a.0).0[0];
+            let t2 = exp_acc::<1>(a, a);
+            let t3 = exp_acc::<1>(t2, a);
+            let t6 = exp_acc::<3>(t3, t3);
             let t12 = exp_acc::<6>(t6, t6);
             let t24 = exp_acc::<12>(t12, t12);
-            let t30 = ark_ff::Fp(BigInt([exp_acc::<6>(t24, t6)]), PhantomData);
-            let t31 = t30.square() * a;
-            let t63 = ark_ff::Fp(
-                BigInt([exp_acc::<32>((t31.0).0[0], (t31.0).0[0])]),
-                PhantomData,
-            );
-            Some(t63.square() * a)
+            let t30 = exp_acc::<6>(t24, t6);
+            let t31 = exp_acc::<1>(t30, a);
+            let t63 = exp_acc::<32>(t31, t31);
+            let inv = exp_acc::<1>(t63, a);
+            Some(ark_ff::Fp(BigInt([inv]), PhantomData))
         }
     }
 
@@ -95,7 +97,7 @@ impl ark_ff::FpConfig<1> for FpParams {
 
 pub type Fp = Fp64<FpParams>;
 
-/// Converts a canonical representation into Montgomery representation
+/// Converts a value into Montgomery representation
 #[inline(always)]
 const fn into_mont(value: u64) -> Fp {
     ark_ff::Fp(BigInt([mont_red(value as u128 * R2 as u128)]), PhantomData)
