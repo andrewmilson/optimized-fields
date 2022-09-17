@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Fp=18446744069414584321 Summary - Criterion.rs</title>
+    <style type="text/css">
+        body {
+            font: 14px Helvetica Neue;
+            text-rendering: optimizelegibility;
+        }
+
+        .body {
+            width: 960px;
+            margin: auto;
+        }
+
+        a:link {
+            color: #1F78B4;
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        #footer {
+            height: 40px;
+            background: #888;
+            color: white;
+            font-size: larger;
+            font-weight: 300;
+        }
+
+        #footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        #footer p {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <h2>Fp=18446744069414584321</h2>
+        <h3>Violin Plot</h3>
+        <a href="violin.svg">
+            <img src="violin.svg" alt="Violin Plot" />
+        </a>
+        <p>This chart shows the relationship between function/parameter and iteration time. The thickness of the shaded
+            region indicates the probability that a measurement of the given function/parameter would take a particular
+            length of time.</p>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Addition/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Addition</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Addition/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Addition/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Addition/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Addition/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Deserialize Compressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Compressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Compressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Compressed Unchecked/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Deserialize Uncompressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Deserialize Uncompressed Unchecked/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Double/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Double</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Double/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Double/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Double/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Double/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/From BigInt/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/From BigInt</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/From BigInt/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/From BigInt/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/From BigInt/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/From BigInt/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Into BigInt/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Into BigInt</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Into BigInt/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Into BigInt/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Into BigInt/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Into BigInt/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Inverse/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Inverse</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Inverse/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Inverse/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Inverse/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Inverse/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Legendre for QR/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Legendre for QR</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Legendre for QR/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Legendre for QR/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Legendre for QR/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Legendre for QR/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Multiplication/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Multiplication</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Multiplication/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Multiplication/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Multiplication/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Multiplication/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Naive sum of products of size 2/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Naive sum of products of size 2</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Naive sum of products of size 2/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Naive sum of products of size 2/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Naive sum of products of size 2/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Naive sum of products of size 2/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Negation/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Negation</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Negation/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Negation/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Negation/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Negation/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Serialize Compressed/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Serialize Compressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Serialize Compressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Serialize Compressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Serialize Compressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Serialize Compressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Serialize Uncompressed/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Serialize Uncompressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Serialize Uncompressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Serialize Uncompressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Serialize Uncompressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Serialize Uncompressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Square/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Square</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Square/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Square/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Square/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Square/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Square Root for QR/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Square Root for QR</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Square Root for QR/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Square Root for QR/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Square Root for QR/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Square Root for QR/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Subtraction/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Subtraction</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Subtraction/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Subtraction/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Subtraction/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Subtraction/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Generic/Sum of products of size 2/report/index.html">
+                <h4>Fp=18446744069414584321/Generic/Sum of products of size 2</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Sum of products of size 2/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Sum of products of size 2/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Generic/Sum of products of size 2/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Generic/Sum of products of size 2/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Addition/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Addition</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Addition/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Addition/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Addition/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Addition/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Deserialize Compressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Compressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Compressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Compressed Unchecked/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Deserialize Uncompressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Deserialize Uncompressed Unchecked/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Double/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Double</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Double/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Double/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Double/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Double/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/From BigInt/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/From BigInt</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/From BigInt/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/From BigInt/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/From BigInt/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/From BigInt/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Into BigInt/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Into BigInt</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Into BigInt/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Into BigInt/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Into BigInt/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Into BigInt/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Inverse/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Inverse</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Inverse/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Inverse/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Inverse/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Inverse/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Legendre for QR/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Legendre for QR</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Legendre for QR/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Legendre for QR/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Legendre for QR/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Legendre for QR/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Multiplication/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Multiplication</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Multiplication/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Multiplication/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Multiplication/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Multiplication/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Naive sum of products of size 2/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Naive sum of products of size 2</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Naive sum of products of size 2/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Naive sum of products of size 2/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Naive sum of products of size 2/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Naive sum of products of size 2/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Negation/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Negation</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Negation/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Negation/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Negation/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Negation/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Serialize Compressed/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Serialize Compressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Serialize Compressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Serialize Compressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Serialize Compressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Serialize Compressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Serialize Uncompressed/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Serialize Uncompressed</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Serialize Uncompressed/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Serialize Uncompressed/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Serialize Uncompressed/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Serialize Uncompressed/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Square/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Square</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Square/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Square/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Square/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Square/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Square Root for QR/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Square Root for QR</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Square Root for QR/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Square Root for QR/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Square Root for QR/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Square Root for QR/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Subtraction/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Subtraction</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Subtraction/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Subtraction/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Subtraction/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Subtraction/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="plots">
+            <a href="../../Fp=18446744069414584321/Specialized/Sum of products of size 2/report/index.html">
+                <h4>Fp=18446744069414584321/Specialized/Sum of products of size 2</h4>
+            </a>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Sum of products of size 2/report/pdf.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Sum of products of size 2/report/pdf_small.svg" alt="PDF of Slope" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                        <td>
+                            <a href="../../Fp=18446744069414584321/Specialized/Sum of products of size 2/report/regression.svg">
+                                <img src="../../Fp=18446744069414584321/Specialized/Sum of products of size 2/report/regression_small.svg" alt="Regression" width="450"
+                                    height="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div id="footer">
+        <p>This report was generated by
+            <a href="https://github.com/bheisler/criterion.rs">Criterion.rs</a>, a statistics-driven benchmarking
+            library in Rust.</p>
+    </div>
+</body>
+
+</html>
