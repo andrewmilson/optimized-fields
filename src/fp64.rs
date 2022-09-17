@@ -1,6 +1,6 @@
 //! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
 //! - 2^32 + 1`. The implementation follows https://eprint.iacr.org/2022/274.pdf
-//! and the code for the majority of functions was stolen from
+//! and the code for the majority of functions was stolen and adapted from
 //! https://github.com/novifinancial/winterfell
 //!
 //! This field and its implementation has many attractive properties:
@@ -10,11 +10,7 @@
 //! * $8$ is the 64th root of unity which opens up potential for optimized FFT
 //!   implementations.
 
-use ark_ff::fields::Fp64;
-use ark_ff::BigInt;
-use ark_ff::PrimeField;
-use ark_ff::SqrtPrecomputation;
-use ark_ff::Zero;
+use ark_ff::{fields::Fp64, BigInt, PrimeField, SqrtPrecomputation, Zero};
 use std::marker::PhantomData;
 
 /// Field modulus `p = 2^64 - 2^32 + 1`
@@ -52,9 +48,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn double_in_place(a: &mut Fp64<Self>) {
-        let ret = ((a.0).0[0] as u128) << 1;
-        let (result, over) = (ret as u64, (ret >> 64) as u64);
-        (a.0).0[0] = result.wrapping_sub(MODULUS * over);
+        Self::add_assign(a, &a.clone());
     }
 
     fn mul_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
