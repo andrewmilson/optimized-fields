@@ -1,6 +1,6 @@
 //! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
 //! - 2^32 + 1`. The implementation follows https://eprint.iacr.org/2022/274.pdf
-//! and the code for the majority of functions was stolen and adapted from
+//! and the code for the majority of functions was taken and adapted from
 //! https://github.com/novifinancial/winterfell
 //!
 //! This field and its implementation has many attractive properties:
