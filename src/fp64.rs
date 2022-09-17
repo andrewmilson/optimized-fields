@@ -1,6 +1,7 @@
 //! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
-//! - 2^32 + 1` The implementation follows https://eprint.iacr.org/2022/274.pdf and
-//!   the code for the majority of functions was stolen from https://github.com/novifinancial/winterfell
+//! - 2^32 + 1` The implementation follows https://eprint.iacr.org/2022/274.pdf
+//! and the code for the majority of functions was stolen from
+//! https://github.com/novifinancial/winterfell
 //!
 //! This field and its implementation has many attractive properties:
 //! * Multiplication of two 32-bit values does not overflow field modulus.
@@ -125,4 +126,12 @@ const fn exp_acc<const N: usize>(base: u64, tail: u64) -> u64 {
         i += 1;
     }
     mont_red(result as u128 * tail as u128)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::Fp as TestField;
+    use ark_algebra_test_templates::*;
+
+    test_field!(fp; TestField; prime);
 }
