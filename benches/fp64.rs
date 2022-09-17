@@ -9,5 +9,5 @@ use criterion::criterion_main;
 pub struct FpParams;
 pub type Generic = ark_ff::Fp128<ark_ff::MontBackend<FpParams, 2>>;
 
-field_compare!(prime; "Fp=18446744069414584321"; fp18446744069414584321; Specialized, Generic);
+field_compare!(prime; "Fp=18446744069414584321"; fp18446744069414584321; Generic, Specialized);
 criterion_main!(fp18446744069414584321::benches);

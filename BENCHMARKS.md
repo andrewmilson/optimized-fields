@@ -3,34 +3,34 @@
 ## Table of Contents
 
 - [Benchmark Results](#benchmark-results)
-    - [Fp=18446744069414584321](#fp=18446744069414584321)
+  - [Fp=18446744069414584321](#fp=18446744069414584321)
 
 ## Benchmark Results
 
 ### Fp=18446744069414584321
 
-|                                          | `Specialized`             | `Generic`                         |
-|:-----------------------------------------|:--------------------------|:--------------------------------- |
-| **`Addition`**                           | `3.80 ns` (✅ **1.00x**)   | `4.11 ns` (✅ **1.08x slower**)    |
-| **`Subtraction`**                        | `3.75 ns` (✅ **1.00x**)   | `4.11 ns` (✅ **1.10x slower**)    |
-| **`Negation`**                           | `3.90 ns` (✅ **1.00x**)   | `4.21 ns` (✅ **1.08x slower**)    |
-| **`Double`**                             | `4.39 ns` (✅ **1.00x**)   | `4.13 ns` (✅ **1.06x faster**)    |
-| **`Multiplication`**                     | `4.00 ns` (✅ **1.00x**)   | `6.14 ns` (❌ *1.53x slower*)      |
-| **`Square`**                             | `4.89 ns` (✅ **1.00x**)   | `5.56 ns` (❌ *1.14x slower*)      |
-| **`Inverse`**                            | `285.02 ns` (✅ **1.00x**) | `543.15 ns` (❌ *1.91x slower*)    |
-| **`Sum of products of size 2`**          | `7.35 ns` (✅ **1.00x**)   | `17.81 ns` (❌ *2.42x slower*)     |
-| **`Naive sum of products of size 2`**    | `8.67 ns` (✅ **1.00x**)   | `15.43 ns` (❌ *1.78x slower*)     |
-| **`Serialize Compressed`**               | `3.96 ns` (✅ **1.00x**)   | `4.68 ns` (❌ *1.18x slower*)      |
-| **`Serialize Uncompressed`**             | `3.96 ns` (✅ **1.00x**)   | `4.73 ns` (❌ *1.19x slower*)      |
-| **`Deserialize Compressed`**             | `5.25 ns` (✅ **1.00x**)   | `8.88 ns` (❌ *1.69x slower*)      |
-| **`Deserialize Compressed Unchecked`**   | `5.25 ns` (✅ **1.00x**)   | `8.76 ns` (❌ *1.67x slower*)      |
-| **`Deserialize Uncompressed`**           | `4.98 ns` (✅ **1.00x**)   | `8.80 ns` (❌ *1.77x slower*)      |
-| **`Deserialize Uncompressed Unchecked`** | `4.99 ns` (✅ **1.00x**)   | `8.79 ns` (❌ *1.76x slower*)      |
-| **`Square Root for QR`**                 | `2.77 us` (✅ **1.00x**)   | `4.41 us` (❌ *1.59x slower*)      |
-| **`Legendre for QR`**                    | `596.07 ns` (✅ **1.00x**) | `1.11 us` (❌ *1.87x slower*)      |
-| **`From BigInt`**                        | `4.33 ns` (✅ **1.00x**)   | `5.31 ns` (❌ *1.23x slower*)      |
-| **`Into BigInt`**                        | `3.93 ns` (✅ **1.00x**)   | `4.72 ns` (❌ *1.20x slower*)      |
+|                                          | `Generic`   | `Specialized`                     |
+| :--------------------------------------- | :---------- | :-------------------------------- |
+| **`Sum of products of size 2`**          | `18.04 ns`  | `7.34 ns` (🚀 **2.46x faster**)   |
+| **`Inverse`**                            | `556.74 ns` | `283.87 ns` (🚀 **1.96x faster**) |
+| **`Legendre for QR`**                    | `1.12 us`   | `596.15 ns` (🚀 **1.88x faster**) |
+| **`Naive sum of products of size 2`**    | `15.41 ns`  | `8.68 ns` (🚀 **1.78x faster**)   |
+| **`Deserialize Compressed`**             | `8.82 ns`   | `4.99 ns` (🚀 **1.77x faster**)   |
+| **`Deserialize Compressed Unchecked`**   | `8.80 ns`   | `4.97 ns` (🚀 **1.77x faster**)   |
+| **`Deserialize Uncompressed`**           | `8.86 ns`   | `5.16 ns` (🚀 **1.72x faster**)   |
+| **`Deserialize Uncompressed Unchecked`** | `8.81 ns`   | `5.15 ns` (🚀 **1.71x faster**)   |
+| **`Square Root for QR`**                 | `4.43 us`   | `2.77 us` (🚀 **1.60x faster**)   |
+| **`Multiplication`**                     | `6.15 ns`   | `4.03 ns` (🚀 **1.53x faster**)   |
+| **`From BigInt`**                        | `5.32 ns`   | `4.30 ns` (✅ **1.24x faster**)   |
+| **`Serialize Uncompressed`**             | `4.72 ns`   | `3.95 ns` (✅ **1.20x faster**)   |
+| **`Into BigInt`**                        | `4.72 ns`   | `3.92 ns` (✅ **1.20x faster**)   |
+| **`Serialize Compressed`**               | `4.72 ns`   | `3.96 ns` (✅ **1.19x faster**)   |
+| **`Square`**                             | `5.60 ns`   | `4.88 ns` (✅ **1.15x faster**)   |
+| **`Subtraction`**                        | `4.09 ns`   | `3.77 ns` (✅ **1.09x faster**)   |
+| **`Addition`**                           | `4.11 ns`   | `3.79 ns` (✅ **1.08x faster**)   |
+| **`Negation`**                           | `4.21 ns`   | `3.90 ns` (✅ **1.08x faster**)   |
+| **`Double`**                             | `4.13 ns`   | `4.32 ns` (❌ **1.04x slower**)   |
 
 ---
-Made with [criterion-table](https://github.com/nu11ptr/criterion-table)
 
+Made with [criterion-table](https://github.com/nu11ptr/criterion-table)
