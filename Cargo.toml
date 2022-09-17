@@ -1,20 +1,27 @@
 [package]
-name = "testing-arkworks"
+name = "ark-specialized-fields"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-ark-ff = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
-ark-algebra-test-templates = { git = "https://github.com/arkworks-rs/algebra", features = ["std"], branch = "explicit-derive-feature" }
-ark-std = { git = "https://github.com/arkworks-rs/std" }
-ark-serialize = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
+ark-ff = { git = "https://github.com/arkworks-rs/algebra", features = ["asm"], branch = "explicit-derive-feature" }
 rand = "0.8.5"
 
 [dev-dependencies]
 rand_pcg = "0.3.1"
+ark-algebra-test-templates = { git = "https://github.com/arkworks-rs/algebra", features = ["std"], branch = "explicit-derive-feature" }
+ark-algebra-bench-templates = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
+ark-std = { git = "https://github.com/arkworks-rs/std" }
+ark-serialize = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
 
 [patch.crates-io]
 ark-std = { git = "https://github.com/arkworks-rs/std" }
 ark-ff = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
 ark-serialize = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
-ark-algebra-test-templates = { git = "https://github.com/arkworks-rs/algebra", features = ["std"], branch = "explicit-derive-feature" }
+ark-algebra-bench-templates = { git = "https://github.com/arkworks-rs/algebra", features = ["std"], branch = "explicit-derive-feature" }
+ark-algebra-test-templates = { git = "https://github.com/arkworks-rs/algebra", branch = "explicit-derive-feature" }
+
+[[bench]]
+name = "fp64"
+path = "benches/fp64.rs"
+harness = false

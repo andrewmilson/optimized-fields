@@ -1,5 +1,5 @@
 //! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
-//! - 2^32 + 1` The implementation follows https://eprint.iacr.org/2022/274.pdf
+//! - 2^32 + 1`. The implementation follows https://eprint.iacr.org/2022/274.pdf
 //! and the code for the majority of functions was stolen from
 //! https://github.com/novifinancial/winterfell
 //!
@@ -12,6 +12,8 @@
 
 use ark_ff::fields::Fp64;
 use ark_ff::BigInt;
+use ark_ff::PrimeField;
+use ark_ff::SqrtPrecomputation;
 use ark_ff::Zero;
 use std::marker::PhantomData;
 
@@ -20,6 +22,7 @@ const MODULUS: u64 = 18446744069414584321;
 
 /// Square of auxiliary modulus R for Montgomery reduction `R2 ≡ (2^64)^2 mod p`
 const R2: u64 = 18446744065119617025;
+
 pub struct FpParams;
 impl ark_ff::FpConfig<1> for FpParams {
     const MODULUS: ark_ff::BigInt<1> = BigInt([MODULUS]);
@@ -28,7 +31,12 @@ impl ark_ff::FpConfig<1> for FpParams {
     const ONE: Fp64<Self> = into_mont(1);
     const TWO_ADICITY: u32 = 32;
     const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_mont(1753635133440165772);
-    const SQRT_PRECOMP: Option<ark_ff::SqrtPrecomputation<Fp64<Self>>> = None;
+    const SQRT_PRECOMP: Option<ark_ff::SqrtPrecomputation<Fp64<Self>>> =
+        Some(SqrtPrecomputation::TonelliShanks {
+            two_adicity: Self::TWO_ADICITY,
+            quadratic_nonresidue_to_trace: Self::TWO_ADIC_ROOT_OF_UNITY,
+            trace_of_modulus_minus_one_div_two: &<Fp64<Self>>::TRACE_MINUS_ONE_DIV_TWO.0,
+        });
 
     fn add_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
         // We compute a + b = a - (p - b).
@@ -133,5 +141,5 @@ mod tests {
     use super::Fp as TestField;
     use ark_algebra_test_templates::*;
 
-    test_field!(fp; TestField; prime);
+    test_field!(generated; TestField; prime);
 }
