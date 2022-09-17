@@ -1,12 +1,19 @@
 # Optimized `arkworks` field implementations
 
-Specialized field implementations that outperform the generic, Montgomery arithmetic, field implementations provided in [arkworks](https://github.com/arkworks-rs/algebra).
-
-Currently only one field has been added. Please contribute an implementation! PRs are welcomed!
+Specialized field implementations that outperform the generic, Montgomery arithmetic, field implementations provided in [arkworks](https://github.com/arkworks-rs/algebra). Currently only one field has been added. Please contribute an implementation! PRs are welcomed!
 
 # Prime field `p=18446744069414584321`
 
-An amazing prime with modulus `p=2^64−2^32+1` with nice properties (1) Multiplying two 32-bit values does not overflow field modulus (2) Checking whether four 16-bit values form a valid field element can be done efficiently. This field is used in [Polygon Miden and Polygon Zero](https://twitter.com/0xPolygonMiden/status/1478786573348995075).
+```rust
+use ark_optimized_fields::fp64::Fp;
+```
+
+An amazing prime with modulus `p=2^64−2^32+1`. This field has some nice properties (1) Multiplying two 32-bit values does not overflow the field modulus and (2) Checking whether four 16-bit values form a valid field element can be done efficiently. This field is used in [Polygon Miden and Polygon Zero](https://twitter.com/0xPolygonMiden/status/1478786573348995075). Implementation was sourced from:
+
+- [EcGFp5: a Specialized Elliptic Curve](https://eprint.iacr.org/2022/274.pdf)
+- [Facebook's Winterfell repo](https://github.com/novifinancial/winterfell/blob/c7c92620cc7661e38ad58e1a3bdfbd7bba694c5d/math/src/field/f64/mod.rs)
+
+### Benchmarks
 
 |                                          | `Generic`   | `Specialized`                     |
 | :--------------------------------------- | :---------- | :-------------------------------- |
@@ -29,3 +36,6 @@ An amazing prime with modulus `p=2^64−2^32+1` with nice properties (1) Multipl
 | **`Addition`**                           | `4.11 ns`   | `3.79 ns` (✅ **1.08x faster**)   |
 | **`Negation`**                           | `4.21 ns`   | `3.90 ns` (✅ **1.08x faster**)   |
 | **`Double`**                             | `4.13 ns`   | `4.32 ns` (❌ **1.04x slower**)   |
+
+_Benchmarked on an M1 Max. Markdown generated with
+[criterion-table](https://github.com/nu11ptr/criterion-table). More detailed benchmark info is [here](http://andrewmilson.com/optimized-fields/criterion/report/index.html)_
