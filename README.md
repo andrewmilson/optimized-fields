@@ -5,7 +5,7 @@ Specialized field implementations that outperform the generic, Montgomery arithm
 # Prime field `p=18446744069414584321`
 
 ```rust
-use ark_optimized_fields::fp64::Fp;
+use ark_ff_optimized::fp64::Fp;
 ```
 
 An amazing prime with modulus `p=2^64−2^32+1`. This field has some nice properties (1) Multiplying two 32-bit values does not overflow the field modulus and (2) Checking whether four 16-bit values form a valid field element can be done efficiently. This field is used in [Polygon Miden and Polygon Zero](https://twitter.com/0xPolygonMiden/status/1478786573348995075). Implementation was sourced from [EcGFp5: a Specialized Elliptic Curve](https://eprint.iacr.org/2022/274.pdf) and [Facebook's Winterfell repo](https://github.com/novifinancial/winterfell/blob/c7c92620cc7661e38ad58e1a3bdfbd7bba694c5d/math/src/field/f64/mod.rs).
