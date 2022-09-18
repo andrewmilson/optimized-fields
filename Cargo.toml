@@ -1,7 +1,13 @@
 [package]
-name = "ark-specialized-fields"
+name = "ark-ff-optimized"
 version = "0.1.0"
 edition = "2021"
+authors = ["Andrew Milson <andrew.j.milson@gmail.com>"]
+description = "Optimized field implementations that outperform the generic field implementations in arkworks"
+repository = "https://github.com/andrewmilson/optimized-fields"
+homepage = "https://github.com/andrewmilson/optimized-fields"
+readme = "README.md"
+license = "MIT"
 
 [dependencies]
 ark-ff = { git = "https://github.com/arkworks-rs/algebra", features = ["asm"], branch = "explicit-derive-feature" }
