@@ -1,13 +1,13 @@
-//! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64
-//! - 2^32 + 1`. The implementation follows https://eprint.iacr.org/2022/274.pdf
+//! An implementation of a 64-bit STARK-friendly prime field with modulus `2^64 -
+//! 2^32 + 1`. The implementation follows <https://eprint.iacr.org/2022/274.pdf>
 //! and the code for the majority of functions was taken and adapted from
-//! https://github.com/novifinancial/winterfell
+//! <https://github.com/novifinancial/winterfell>
 //!
 //! This field and its implementation has many attractive properties:
 //! * Multiplication of two 32-bit values does not overflow field modulus.
 //! * Field arithmetic in this field can be implemented using a few 32-bit
 //!   addition, subtractions, and shifts.
-//! * $8$ is the 64th root of unity which opens up potential for optimized FFT
+//! * 8 is the 64th root of unity which opens up potential for optimized FFT
 //!   implementations.
 
 use ark_ff::{fields::Fp64, BigInt, PrimeField, SqrtPrecomputation, Zero};
@@ -98,6 +98,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 }
 
+/// An optimized implementation of a 64-bit prime field with modulus `2^64 - 2^32 + 1`
 pub type Fp = Fp64<FpParams>;
 
 /// Converts a value into Montgomery representation

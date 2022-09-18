@@ -1,6 +1,6 @@
 use ark_algebra_bench_templates::*;
-use ark_specialized_fields::field_compare;
-use ark_specialized_fields::fp64::Fp as Specialized;
+use ark_ff_optimized::field_compare;
+use ark_ff_optimized::fp64::Fp as Specialized;
 use criterion::criterion_main;
 
 #[derive(ark_ff::MontConfig)]

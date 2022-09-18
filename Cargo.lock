@@ -101,6 +101,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "ark-ff-optimized"
+version = "0.1.0"
+dependencies = [
+ "ark-algebra-bench-templates",
+ "ark-algebra-test-templates",
+ "ark-ff",
+ "ark-serialize",
+ "ark-std",
+ "rand",
+ "rand_pcg",
+]
+
+[[package]]
 name = "ark-poly"
 version = "0.3.0"
 source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
@@ -130,19 +143,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "ark-specialized-fields"
-version = "0.1.0"
-dependencies = [
- "ark-algebra-bench-templates",
- "ark-algebra-test-templates",
- "ark-ff",
- "ark-serialize",
- "ark-std",
- "rand",
- "rand_pcg",
 ]
 
 [[package]]
