@@ -55,7 +55,7 @@ impl ark_ff::FpConfig<1> for FpParams {
         (a.0).0[0] = mont_red((a.0).0[0] as u128 * (b.0).0[0] as u128);
     }
 
-    fn sum_of_products(a: &[Fp64<Self>], b: &[Fp64<Self>]) -> Fp64<Self> {
+    fn sum_of_products<const T: usize>(a: &[Fp64<Self>; T], b: &[Fp64<Self>; T]) -> Fp64<Self> {
         a.iter().zip(b).map(|(&a, b)| a * b).sum()
     }
 
@@ -96,9 +96,16 @@ impl ark_ff::FpConfig<1> for FpParams {
     fn into_bigint(other: Fp64<Self>) -> ark_ff::BigInt<1> {
         BigInt([mont_red((other.0).0[0] as u128)])
     }
+
+    fn neg_in_place(a: &mut Fp64<Self>) {
+        let mut tmp = Self::ZERO;
+        Self::sub_assign(&mut tmp, a);
+        a.0 = tmp.0;
+    }
 }
 
-/// An optimized implementation of a 64-bit prime field with modulus `2^64 - 2^32 + 1`
+/// An optimized implementation of a 64-bit prime field with modulus `2^64 -
+/// 2^32 + 1`
 pub type Fp = Fp64<FpParams>;
 
 /// Converts a value into Montgomery representation

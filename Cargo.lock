@@ -22,12 +22,12 @@ checksum = "4b46cbb362ab8752921c97e041f5e366ee6297bd428a31275b9fcf1e380f7299"
 [[package]]
 name = "ark-algebra-bench-templates"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-ec",
  "ark-ff",
  "ark-serialize",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "criterion",
  "paste",
 ]
@@ -35,12 +35,12 @@ dependencies = [
 [[package]]
 name = "ark-algebra-test-templates"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-ec",
  "ark-ff",
  "ark-serialize",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "num-bigint",
  "num-integer",
  "num-traits",
@@ -49,12 +49,12 @@ dependencies = [
 [[package]]
 name = "ark-ec"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-ff",
  "ark-poly",
  "ark-serialize",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "derivative",
  "hashbrown",
  "itertools",
@@ -65,14 +65,15 @@ dependencies = [
 [[package]]
 name = "ark-ff"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-ff-asm",
  "ark-ff-macros",
  "ark-serialize",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "derivative",
  "digest",
+ "itertools",
  "num-bigint",
  "num-traits",
  "paste",
@@ -83,7 +84,7 @@ dependencies = [
 [[package]]
 name = "ark-ff-asm"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "quote",
  "syn",
@@ -92,10 +93,11 @@ dependencies = [
 [[package]]
 name = "ark-ff-macros"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "num-bigint",
  "num-traits",
+ "proc-macro2",
  "quote",
  "syn",
 ]
@@ -108,19 +110,17 @@ dependencies = [
  "ark-algebra-test-templates",
  "ark-ff",
  "ark-serialize",
- "ark-std",
- "rand",
- "rand_pcg",
+ "ark-std 0.3.0 (git+https://github.com/arkworks-rs/std)",
 ]
 
 [[package]]
 name = "ark-poly"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-ff",
  "ark-serialize",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "derivative",
  "hashbrown",
 ]
@@ -128,21 +128,31 @@ dependencies = [
 [[package]]
 name = "ark-serialize"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "ark-serialize-derive",
- "ark-std",
+ "ark-std 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "digest",
 ]
 
 [[package]]
 name = "ark-serialize-derive"
 version = "0.3.0"
-source = "git+https://github.com/arkworks-rs/algebra?branch=explicit-derive-feature#225c4c08c0244fe7c7f25d8eb0e2dc2eb4d08d59"
+source = "git+https://github.com/arkworks-rs/algebra#09d310295f4d8efcb6febe594a5bec43470d6cbe"
 dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "ark-std"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1df2c09229cbc5a028b1d70e00fdb2acee28b1055dfb5ca73eea49c5a25c4e7c"
+dependencies = [
+ "num-traits",
+ "rand",
 ]
 
 [[package]]
@@ -302,26 +312,24 @@ dependencies = [
 
 [[package]]
 name = "crossbeam-epoch"
-version = "0.9.10"
+version = "0.9.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "045ebe27666471bb549370b4b0b3e51b07f56325befa4284db65fc89c02511b1"
+checksum = "f916dfc5d356b0ed9dae65f1db9fc9770aa2851d2662b988ccf4fe3516e86348"
 dependencies = [
  "autocfg",
  "cfg-if",
  "crossbeam-utils",
  "memoffset",
- "once_cell",
  "scopeguard",
 ]
 
 [[package]]
 name = "crossbeam-utils"
-version = "0.8.11"
+version = "0.8.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "51887d4adc7b564537b15adcfb307936f8075dfcd5f00dde9a9f1d29383682bc"
+checksum = "edbafec5fa1f196ca66527c1b12c2ec4745ca14b50f1ad8f9f6f720b55d11fac"
 dependencies = [
  "cfg-if",
- "once_cell",
 ]
 
 [[package]]
@@ -417,18 +425,18 @@ dependencies = [
 
 [[package]]
 name = "itertools"
-version = "0.10.4"
+version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8bf247779e67a9082a4790b45e71ac7cfd1321331a5c856a74a9faebdab78d0"
+checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
 dependencies = [
  "either",
 ]
 
 [[package]]
 name = "itoa"
-version = "1.0.3"
+version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6c8af84674fe1f223a982c933a0ee1086ac4d4052aa0fb8060c12c6ad838e754"
+checksum = "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
 
 [[package]]
 name = "js-sys"
@@ -447,9 +455,9 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
 name = "libc"
-version = "0.2.132"
+version = "0.2.135"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8371e4e5341c3a96db127eb2465ac681ced4c433e01dd0e938adbef26ba93ba5"
+checksum = "68783febc7782c6c5cb401fbda4de5a9898be1762314da0bb2c10ced61f18b0c"
 
 [[package]]
 name = "log"
@@ -511,9 +519,9 @@ dependencies = [
 
 [[package]]
 name = "once_cell"
-version = "1.14.0"
+version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f7254b99e31cad77da24b08ebf628882739a608578bb1bcdfc1f9c21260d7c0"
+checksum = "e82dad04139b71a90c080c8463fe0dc7902db5192d939bd0950f074d014339e1"
 
 [[package]]
 name = "oorandom"
@@ -569,9 +577,9 @@ checksum = "eb9f9e6e233e5c4a35559a617bf40a4ec447db2e84c20b55a6f83167b7e57872"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.43"
+version = "1.0.47"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a2ca2c61bc9f3d74d2886294ab7b9853abd9c1ad903a3ac7815c58989bb7bab"
+checksum = "5ea3d908b0e36316caf9e9e2c4625cdde190a7e6f440d794667ed17a1855e725"
 dependencies = [
  "unicode-ident",
 ]
@@ -591,7 +599,6 @@ version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
 dependencies = [
- "libc",
  "rand_chacha",
  "rand_core",
 ]
@@ -611,18 +618,6 @@ name = "rand_core"
 version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
-dependencies = [
- "getrandom",
-]
-
-[[package]]
-name = "rand_pcg"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "59cad018caf63deb318e5a4586d99a24424a364f40f1e5778c29aca23f4fc73e"
-dependencies = [
- "rand_core",
-]
 
 [[package]]
 name = "rayon"
@@ -701,18 +696,18 @@ checksum = "e25dfac463d778e353db5be2449d1cce89bd6fd23c9f1ea21310ce6e5a1b29c4"
 
 [[package]]
 name = "serde"
-version = "1.0.144"
+version = "1.0.145"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f747710de3dcd43b88c9168773254e809d8ddbdf9653b84e2554ab219f17860"
+checksum = "728eb6351430bccb993660dfffc5a72f91ccc1295abaa8ce19b27ebe4f75568b"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.144"
+version = "1.0.145"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94ed3a816fb1d101812f83e789f888322c34e291f894f19590dc310963e87a00"
+checksum = "81fa1584d3d1bcacd84c277a0dfe21f5b0f6accf4a23d04d4c6d61f1af522b4c"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -721,9 +716,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.85"
+version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e55a28e3aaef9d5ce0506d0a14dbba8054ddc7e499ef522dd8b26859ec9d4a44"
+checksum = "41feea4228a6f1cd09ec7a3593a682276702cd67b5273544757dae23c096f074"
 dependencies = [
  "itoa",
  "ryu",
@@ -732,9 +727,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.99"
+version = "1.0.102"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58dbef6ec655055e20b86b15a8cc6d439cca19b667537ac6a1369572d151ab13"
+checksum = "3fcd952facd492f9be3ef0d0b7032a6e442ee9b361d4acc2b1d0c4aaa5f613a1"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -777,9 +772,9 @@ checksum = "dcf81ac59edc17cc8697ff311e8f5ef2d99fcbd9817b34cec66f90b6c3dfd987"
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.4"
+version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dcc811dc4066ac62f84f11307873c4850cb653bfa9b1719cee2bd2204a4bc5dd"
+checksum = "6ceab39d59e4c9499d4e5a8ee0e2735b891bb7308ac83dfb4e80cad195c9f6f3"
 
 [[package]]
 name = "unicode-xid"
