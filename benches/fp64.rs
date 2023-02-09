@@ -7,7 +7,7 @@ use criterion::criterion_main;
 #[modulus = "18446744069414584321"]
 #[generator = "7"]
 pub struct FpParams;
-pub type Generic = ark_ff::Fp128<ark_ff::MontBackend<FpParams, 2>>;
+pub type Generic = ark_ff::Fp64<ark_ff::MontBackend<FpParams, 1>>;
 
 field_compare!(prime; "Fp=18446744069414584321"; fp18446744069414584321; Generic, Specialized);
 criterion_main!(fp18446744069414584321::benches);

@@ -13,11 +13,17 @@
 use ark_ff::{fields::Fp64, BigInt, PrimeField, SqrtPrecomputation, Zero};
 use std::marker::PhantomData;
 
+#[derive(ark_ff::MontConfig)]
+#[modulus = "4611624995532046337"]
+#[generator = "3"]
+pub struct Fp7Params;
+pub type Generic = ark_ff::Fp128<ark_ff::MontBackend<FpParams, 2>>;
+
 /// Field modulus `p = 2^64 - 2^32 + 1`
-const MODULUS: u64 = 18446744069414584321;
+const MODULUS: u64 = 18_446_744_069_414_584_321;
 
 /// Square of auxiliary modulus R for Montgomery reduction `R2 ≡ (2^64)^2 mod p`
-const R2: u64 = 18446744065119617025;
+const R2: u64 = 18_446_744_065_119_617_025;
 
 pub struct FpParams;
 impl ark_ff::FpConfig<1> for FpParams {
@@ -26,7 +32,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     const ZERO: Fp64<Self> = into_mont(0);
     const ONE: Fp64<Self> = into_mont(1);
     const TWO_ADICITY: u32 = 32;
-    const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_mont(1753635133440165772);
+    const TWO_ADIC_ROOT_OF_UNITY: Fp64<Self> = into_mont(1_753_635_133_440_165_772);
     const SQRT_PRECOMP: Option<ark_ff::SqrtPrecomputation<Fp64<Self>>> =
         Some(SqrtPrecomputation::TonelliShanks {
             two_adicity: Self::TWO_ADICITY,
@@ -37,14 +43,14 @@ impl ark_ff::FpConfig<1> for FpParams {
     fn add_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
         // We compute a + b = a - (p - b).
         let (x1, c1) = (a.0).0[0].overflowing_sub(MODULUS - (b.0).0[0]);
-        let adj = 0u32.wrapping_sub(c1 as u32);
-        (a.0).0[0] = x1.wrapping_sub(adj as u64);
+        let adj = 0u32.wrapping_sub(u32::from(c1));
+        (a.0).0[0] = x1.wrapping_sub(u64::from(adj));
     }
 
     fn sub_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
         let (x1, c1) = (a.0).0[0].overflowing_sub((b.0).0[0]);
-        let adj = 0u32.wrapping_sub(c1 as u32);
-        (a.0).0[0] = x1.wrapping_sub(adj as u64);
+        let adj = 0u32.wrapping_sub(u32::from(c1));
+        (a.0).0[0] = x1.wrapping_sub(u64::from(adj));
     }
 
     fn double_in_place(a: &mut Fp64<Self>) {
@@ -52,7 +58,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn mul_assign(a: &mut Fp64<Self>, b: &Fp64<Self>) {
-        (a.0).0[0] = mont_red((a.0).0[0] as u128 * (b.0).0[0] as u128);
+        (a.0).0[0] = mont_red(u128::from((a.0).0[0]) * u128::from((b.0).0[0]));
     }
 
     fn sum_of_products<const T: usize>(a: &[Fp64<Self>; T], b: &[Fp64<Self>; T]) -> Fp64<Self> {
@@ -94,7 +100,7 @@ impl ark_ff::FpConfig<1> for FpParams {
     }
 
     fn into_bigint(other: Fp64<Self>) -> ark_ff::BigInt<1> {
-        BigInt([mont_red((other.0).0[0] as u128)])
+        BigInt([mont_red(u128::from((other.0).0[0]))])
     }
 
     fn neg_in_place(a: &mut Fp64<Self>) {
@@ -109,25 +115,26 @@ impl ark_ff::FpConfig<1> for FpParams {
 pub type Fp = Fp64<FpParams>;
 
 /// Converts a value into Montgomery representation
-#[inline(always)]
+#[inline]
 const fn into_mont(value: u64) -> Fp {
     ark_ff::Fp(BigInt([mont_red(value as u128 * R2 as u128)]), PhantomData)
 }
 
 /// Performs Montgomery reduction
-#[inline(always)]
+#[inline]
 const fn mont_red(x: u128) -> u64 {
     // See reference above for a description of the following implementation.
+    #[allow(clippy::cast_possible_truncation)]
     let xl = x as u64;
     let xh = (x >> 64) as u64;
-    let (a, e) = xl.overflowing_add(xl << 32);
-    let b = a.wrapping_sub(a >> 32).wrapping_sub(e as u64);
-    let (r, c) = xh.overflowing_sub(b);
-    r.wrapping_sub(0u32.wrapping_sub(c as u32) as u64)
+    let (a, overflow) = xl.overflowing_add(xl << 32);
+    let b = a.wrapping_sub(a >> 32).wrapping_sub(overflow as u64);
+    let (r, underflow) = xh.overflowing_sub(b);
+    r.wrapping_sub(0u32.wrapping_sub(underflow as u32) as u64)
 }
 
 /// Squares `base` N times and multiplies the result by the tail value.
-#[inline(always)]
+#[inline]
 const fn exp_acc<const N: usize>(base: u64, tail: u64) -> u64 {
     let mut result = base;
     let mut i = 0;
@@ -141,7 +148,7 @@ const fn exp_acc<const N: usize>(base: u64, tail: u64) -> u64 {
 #[cfg(test)]
 mod tests {
     use super::Fp as TestField;
-    use ark_algebra_test_templates::*;
+    use ark_algebra_test_templates::test_field;
 
     test_field!(generated; TestField; prime);
 }

@@ -1,22 +1,24 @@
 [package]
 name = "ark-ff-optimized"
-version = "0.1.1"
+version = "0.4.0"
 edition = "2021"
 authors = ["Andrew Milson <andrew.j.milson@gmail.com>"]
 description = "Optimized field implementations that outperform the generic field implementations in arkworks"
 repository = "https://github.com/andrewmilson/optimized-fields"
 homepage = "https://github.com/andrewmilson/optimized-fields"
+keywords = ["cryptography", "finite-fields"]
+categories = ["cryptography"]
 readme = "README.md"
 license = "MIT"
 
 [dependencies]
-ark-ff = { git = "https://github.com/arkworks-rs/algebra" }
+ark-ff = "0.4.0"
 
 [dev-dependencies]
-ark-algebra-test-templates = { git = "https://github.com/arkworks-rs/algebra" }
-ark-algebra-bench-templates = { git = "https://github.com/arkworks-rs/algebra" }
-ark-serialize = { git = "https://github.com/arkworks-rs/algebra" }
-ark-std = { git = "https://github.com/arkworks-rs/std" }
+ark-algebra-test-templates = "0.4.0"
+ark-algebra-bench-templates = "0.4.0"
+ark-serialize = "0.4.0"
+ark-std = "0.4.0"
 
 [features]
 asm = ["ark-ff/asm"]
