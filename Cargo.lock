@@ -115,7 +115,7 @@ dependencies = [
 
 [[package]]
 name = "ark-ff-optimized"
-version = "0.4.0"
+version = "0.4.1"
 dependencies = [
  "ark-algebra-bench-templates",
  "ark-algebra-test-templates",
