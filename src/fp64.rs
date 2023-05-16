@@ -11,13 +11,7 @@
 //!   implementations.
 
 use ark_ff::{fields::Fp64, BigInt, PrimeField, SqrtPrecomputation, Zero};
-use std::marker::PhantomData;
-
-#[derive(ark_ff::MontConfig)]
-#[modulus = "4611624995532046337"]
-#[generator = "3"]
-pub struct Fp7Params;
-pub type Generic = ark_ff::Fp128<ark_ff::MontBackend<FpParams, 2>>;
+use core::marker::PhantomData;
 
 /// Field modulus `p = 2^64 - 2^32 + 1`
 const MODULUS: u64 = 18_446_744_069_414_584_321;

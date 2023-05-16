@@ -12,18 +12,28 @@ readme = "README.md"
 license = "MIT"
 
 [dependencies]
-ark-ff = "0.4.0"
+ark-ff = "0.4"
+ark-serialize = "0.4"
+ark-std = "0.4"
+zeroize = "1"
+num-bigint = "0.4"
 
 [dev-dependencies]
-ark-algebra-test-templates = "0.4.0"
-ark-algebra-bench-templates = "0.4.0"
-ark-serialize = "0.4.0"
-ark-std = "0.4.0"
+ark-algebra-test-templates = "0.4"
+ark-algebra-bench-templates = "0.4"
+ark-serialize = "0.4"
+ark-std = "0.4"
 
 [features]
 asm = ["ark-ff/asm"]
+std = []
 
 [[bench]]
 name = "fp64"
 path = "benches/fp64.rs"
+harness = false
+
+[[bench]]
+name = "fp31"
+path = "benches/fp31.rs"
 harness = false
